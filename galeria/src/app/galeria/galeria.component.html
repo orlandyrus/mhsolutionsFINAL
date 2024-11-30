@@ -1,0 +1,106 @@
+<section class="welcome-section text-center py-4">
+
+  <!-- Pop-up de notificación -->
+<div
+*ngIf="mensajeAlerta"
+class="popup-alert"
+>
+{{ mensajeAlerta }}
+</div>
+
+  <h1 class="fw-bold text-black">Bienvenido a Nuestra Tienda</h1>
+  <p class="text-secondary text-black">
+    Explora nuestra amplia variedad de artículos diseñados para cada necesidad.
+  </p>
+  <ul class="categories-list text-center"></ul>
+</section>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+  <div class="container-fluid justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link underline-animation"
+          [class.active]="selectedCategory === ''"
+          (click)="filtrarCategoria(''); seleccionarCategoria('')"
+          >Todos</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link underline-animation"
+          [class.active]="selectedCategory === 'herramientas'"
+          (click)="
+            filtrarCategoria('herramientas');
+            seleccionarCategoria('herramientas')
+          "
+          >Herramientas</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link underline-animation"
+          [class.active]="selectedCategory === 'industria'"
+          (click)="
+            filtrarCategoria('industria'); seleccionarCategoria('industria')
+          "
+          >Industria</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link underline-animation"
+          [class.active]="selectedCategory === 'oficina'"
+          (click)="filtrarCategoria('oficina'); seleccionarCategoria('oficina')"
+          >Oficina</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link underline-animation"
+          [class.active]="selectedCategory === 'tecnologia'"
+          (click)="
+            filtrarCategoria('tecnologia'); seleccionarCategoria('tecnologia')
+          "
+          >Tecnología</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="py-5">
+  <div class="container px-2 px-lg-3 mt-2">
+    <div
+      class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+    >
+      <div *ngFor="let producto of productosFiltrados" class="col mb-5">
+        <div class="card h-100 shadow border-light">
+          <img
+            class="card-img-top"
+            [src]="producto.imagen"
+            [alt]="producto.nombre"
+          />
+          <div class="card-body p-3 text-center">
+            <h5 class="fw-bold text-dark">{{ producto.nombre }}</h5>
+            <p class="text-secondary">{{ producto.precio }}</p>
+          </div>
+          
+          <div class="card-footer p-4 pt-0 border-top-0 bg-white">
+            <div class="text-center">
+              <button class="btn btn-outline-dark mt-auto"(click)="agregarAlCarrito(producto)">
+                Agregar al carrito
+              </button>
+
+              <a [routerLink]="['/galeria/producto', producto.nombre]" class="btn btn-danger">
+                Ver Detalles
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

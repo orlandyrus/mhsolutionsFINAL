@@ -1,0 +1,96 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header d-flex justify-content-between align-items-center flex-column flex-md-row">
+      <h3 class="mb-2 mb-md-0 text-center text-md-start">Lista de Productos</h3>
+      <button class="btn btn-primary mt-2 mt-md-0" (click)="addProduct()">Agregar Producto</button>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.productId }}</td>
+              <td>{{ product.productName }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.stock }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm me-2" (click)="editProduct(product)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.productId)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formulario para agregar o editar productos -->
+<div *ngIf="showForm" class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h3>{{ editing ? 'Editar Producto' : 'Agregar Producto' }}</h3>
+    </div>
+    <div class="card-body">
+      <form #productForm="ngForm" (ngSubmit)="saveProduct()">
+        <div class="mb-3">
+          <label for="productName" class="form-label">Nombre</label>
+          <input
+            type="text"
+            id="productName"
+            class="form-control"
+            [(ngModel)]="selectedProduct.productName"
+            name="productName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <input
+            type="text"
+            id="description"
+            class="form-control"
+            [(ngModel)]="selectedProduct.description"
+            name="description"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Precio</label>
+          <input
+            type="number"
+            id="price"
+            class="form-control"
+            [(ngModel)]="selectedProduct.price"
+            name="price"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock</label>
+          <input
+            type="number"
+            id="stock"
+            class="form-control"
+            [(ngModel)]="selectedProduct.stock"
+            name="stock"
+            required
+          />
+        </div>
+        <button class="btn btn-primary" type="submit">{{ editing ? 'Actualizar' : 'Guardar' }}</button>
+        <button class="btn btn-secondary ms-2" type="button" (click)="cancel()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

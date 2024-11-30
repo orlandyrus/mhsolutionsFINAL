@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.navbar {
+  position: sticky;
+  top: 60px; /* Ajusta este valor a la altura del header */
+  z-index: 999; /* Debe estar justo debajo del header */
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  color: white;
+}
+
+
+.navbar a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+}
+
+/* Animación de subrayado */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+/* Tarjetas */
+.card {
+  border: 2px solid #ddd; /* Borde ligero */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra al pasar el cursor */
+}
+
+.card-body h5 {
+  color: black; /* Nombre del producto en negro */
+}
+
+.card-body p {
+  color: gray; /* Precio en gris */
+}
+
+/* Botones */
+.btn {
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.btn-outline-dark {
+  border: 1px solid gray;
+  color: black;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-outline-dark:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-primary {
+  background-color: red;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: darkred;
+}
+/* Estilo del pop-up */
+.popup-alert {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Fondo gris oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-size: 1rem;
+  text-align: center;
+  animation: fade-in-out 3s forwards; /* Animación para aparecer y desaparecer */
+}
+
+/* Animación para el pop-up */
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+}

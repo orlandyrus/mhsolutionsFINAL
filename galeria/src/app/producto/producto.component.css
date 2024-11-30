@@ -1,0 +1,26 @@
+mg {
+  object-fit: cover;
+  max-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    text-align: center;
+  }
+}
+  /* Input más pequeño */
+  .cantidad-input {
+    width: 100px;
+  }
+
+  /* Botón rojo con hover negro */
+  .btn-red {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-red:hover {
+    background-color: #000;
+    color: #fff;
+  }

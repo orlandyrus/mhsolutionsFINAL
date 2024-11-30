@@ -1,0 +1,129 @@
+/* Fondo y tipografía general */
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Encabezados */
+  h3, h4, h5 {
+    color: #333333;
+  }
+  
+  /* Contenedor principal */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Tarjetas y secciones */
+  .card {
+    background-color: #f8f9fa;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .breadcrumb {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb-item a {
+    color: #dc3545;
+    text-decoration: none;
+  }
+  
+  .breadcrumb-item.active {
+    color: #6c757d;
+  }
+  
+  /* Input y select */
+  input, select, textarea {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: #dc3545;
+    outline: none;
+  }
+  
+  /* Botones */
+  button {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilo de texto */
+  .text-muted {
+    color: #6c757d;
+  }
+  
+  /* Resumen de pedido, dirección de envío y forma de pago */
+  .shipping-address, .order-summary, .payment-method {
+    background-color: #f8f9fa; /* Color uniforme */
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .order-summary {
+    margin-left: 20px;
+  }
+  
+  /* Columnas y distribución */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-8 {
+    flex: 0 0 65%;
+    max-width: 65%;
+  }
+  
+  .col-md-4 {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+  
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Circulitos de opciones */
+  .form-check-input {
+    accent-color: #dc3545;
+    width: 16px; /* Tamaño reducido */
+    height: 16px; /* Tamaño reducido */
+  }
+  
+  /* Imágenes */
+  img {
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  
+  

@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header d-flex justify-content-between align-items-center flex-column flex-md-row">
+      <h3 class="mb-2 mb-md-0 text-center text-md-start">Mensajes</h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>Empresa</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let message of messages">
+              <td>{{ message.nombre }}</td>
+              <td>{{ message.apellidos }}</td>
+              <td>{{ message.email }}</td>
+              <td>{{ message.telefono }}</td>
+              <td>{{ message.empresa }}</td>
+              <td>
+                <button class="btn btn-info btn-sm me-2" (click)="viewDetails(message)">Detalles</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteMessage(message.id)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para mostrar detalles -->
+<div class="modal" tabindex="-1" [ngClass]="{ 'show': showModal }" style="display: block;" *ngIf="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalles del Mensaje</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Mensaje:</strong></p>
+        <p>{{ selectedMessage?.mensaje }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="carousel-container">
+  <h2>Promociones Especiales</h2>
+
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let promo of promociones; let i = index"
+        [class.active]="i === activeIndex"
+      >
+        <img [src]="promo.imagen" [alt]="promo.titulo" />
+        <div class="carousel-content">
+          <h3>{{ promo.titulo }}</h3>
+          <p>{{ promo.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let promo of promociones; let i = index"
+        [class.active]="i === activeIndex"
+        (click)="setActive(i)"
+      ></button>
+    </div>
+
+    <!-- Controles de navegación -->
+    <button class="carousel-control prev" (click)="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" (click)="nextSlide()">&#10095;</button>
+  </div>
+</div>

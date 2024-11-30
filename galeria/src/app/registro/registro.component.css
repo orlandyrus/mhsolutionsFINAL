@@ -1,0 +1,99 @@
+/* Estilos para el contenedor principal de registro */
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo del título */
+  h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos para las etiquetas y campos de entrada */
+  label {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  /* Estilos para campos inválidos */
+  input:invalid {
+    border-color: #e53935;
+  }
+  
+  /* Estilo para mensajes de error */
+  .error {
+    color: #e53935;
+    font-size: 0.8em;
+    display: none;
+  }
+  
+  input:invalid + .error {
+    display: block;
+  }
+  
+  /* Estilo del botón en rojo */
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Estilo de los textos y enlaces */
+  p {
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .corporate-link,
+  .login-link {
+    margin-top: 10px;
+  }
+  
+  a {
+    color: #007185;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

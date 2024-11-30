@@ -1,0 +1,42 @@
+.card {
+  margin-top: 20px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+/* Hacer la tabla responsive */
+.table-responsive {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Estilo para las cabeceras de la tarjeta */
+.card-header {
+  background-color: #000000;
+  color: white;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+/* Hacer que los botones en el encabezado se acomoden verticalmente en pantallas pequeñas */
+.card-header .d-flex {
+  flex-wrap: wrap;
+}
+
+.card-header .btn {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .card-header {
+    text-align: center;
+  }
+
+  .card-body {
+    padding: 0;
+  }
+}

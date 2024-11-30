@@ -1,0 +1,86 @@
+<div class="container mt-5 contact-container">
+  <div class="row">
+    <!-- Mapa -->
+    <div class="col-lg-6 col-12 map-container">
+      <h2>Nuestra Ubicación</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.737776493463!2d-106.09599835096815!3d28.637620189972907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea4331721d8a5f%3A0x77d612aab11c0422!2sMH%20Solutions!5e0!3m2!1ses!2smx!4v1729725609427!5m2!1ses!2smx"
+        width="100%"
+        height="250"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <!-- Formulario -->
+    <div class="col-lg-6 col-12 form-container">
+      <h1>Contáctanos</h1>
+      <h2>Cotiza tus proyectos industriales</h2>
+      <form #contactForm="ngForm" (ngSubmit)="submitContactForm()">
+        <div class="mb-3">
+          <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            placeholder="Nombre*"
+            [(ngModel)]="contactData.nombre"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            name="apellidos"
+            class="form-control"
+            placeholder="Apellidos*"
+            [(ngModel)]="contactData.apellidos"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            placeholder="Email*"
+            [(ngModel)]="contactData.email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="tel"
+            name="telefono"
+            class="form-control"
+            placeholder="Teléfono*"
+            [(ngModel)]="contactData.telefono"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            name="empresa"
+            class="form-control"
+            placeholder="Empresa*"
+            [(ngModel)]="contactData.empresa"
+          />
+        </div>
+        <div class="mb-3">
+          <textarea
+            name="mensaje"
+            class="form-control"
+            rows="5"
+            placeholder="Comentarios*"
+            [(ngModel)]="contactData.mensaje"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,59 @@
+/* Ajustes para la página de contacto */
+
+/* Contenedor principal */
+.contact-container {
+    gap: 20px;
+}
+
+/* Mapa */
+.map-container {
+    order: 1;
+    margin-bottom: 20px; /* Asegura un espacio con el contenido inferior */
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%; /* Ajusta la altura */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega un efecto sutil para destacar */
+}
+
+/* Formulario */
+.form-container {
+    order: 2;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Botón */
+button {
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #260301; /* Color más oscuro al pasar el mouse */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .map-container,
+    .form-container {
+        order: unset; /* Se apilan uno encima del otro */
+        margin-bottom: 20px;
+    }
+}
+
+/* Corrección para evitar que el mapa se sobreponga al footer */
+.map-container {
+    z-index: 1; /* Asegura que el mapa no se sobreponga */
+    position: relative;
+}

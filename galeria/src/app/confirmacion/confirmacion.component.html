@@ -1,0 +1,23 @@
+<div class="container mt-5 text-center">
+    <!-- Header Breadcrumb -->
+    <!--<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/carrito">Carrito</a></li>
+            <li class="breadcrumb-item"><a href="#">Procede al pago</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Pagar</li>
+            <li class="breadcrumb-item">Pedido completo</li>
+        </ol>
+    </nav>-->
+  <h2>¡Gracias por tu compra!</h2>
+  <p>Tu pedido ha sido confirmado.</p>
+  <p>Número de Confirmación: {{ numeroConfirmacion }}</p>
+  <h4>Resumen de la Compra</h4>
+  <ul class="list-group">
+  <li *ngFor="let producto of productosSeleccionados" class="list-group-item"> 
+    {{ producto.nombre }} - Cantidad: {{ producto.cantidad }} - Precio: ${{ producto.precio * producto.cantidad }}
+  </li>
+  </ul>
+  <h4 class="mt-3">Total: ${{ getTotal() }}</h4>
+  <a class="btn btn-danger w-100" type="button" href="/resumen-pedido">Ver resumen del pedido</a>
+  </div>
+  

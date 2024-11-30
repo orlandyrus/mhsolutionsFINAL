@@ -1,0 +1,161 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(90deg, #343a40 0%, #212529 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.hero-section img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Tarjetas */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card .info {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+}
+
+.card .info button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card .info button:hover {
+    background-color: #df0909;
+}
+
+/* Testimonios */
+.testimonials blockquote {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.rounded-circle {
+    border: 2px solid #fff;
+}
+
+/* Ajustes de tarjetas para responsividad */
+@media (max-width: 768px) {
+    .card-group {
+        gap: 15px;
+    }
+
+    .card {
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+        height: auto;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+
+    .info button {
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .info p {
+        font-size: 10px;
+    }
+
+    .info button {
+        padding: 5px 8px;
+    }
+}
+
+/* Ajustes para imágenes circulares en testimonios */
+.rounded-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los badges */
+.badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+/* Cambiar el color de los botones a rojo */
+.card .info button,
+.btn-primary,
+.btn-outline-light {
+    background-color: #df0909; /* Rojo */
+    color: #fff; /* Texto blanco para contraste */
+    border: none; /* Sin bordes */
+}
+
+/* Cambiar el color de los botones outline */
+.btn-outline-light {
+    background-color: transparent;
+    color: #df0909; /* Rojo para el texto */
+    border: 2px solid #df0909;
+}
+
+.btn-outline-light:hover {
+    background-color: #df0909; /* Rojo al pasar el ratón */
+    color: #fff;
+}
+
+/* Hover para los botones primarios */
+.btn-primary:hover,
+.card .info button:hover {
+    background-color: #b50707; /* Rojo oscuro para hover */
+}
+
+/* Hover para los botones outline */
+.card .info button:hover {
+    background-color: #b50707; /* Coincide con el hover principal */
+}

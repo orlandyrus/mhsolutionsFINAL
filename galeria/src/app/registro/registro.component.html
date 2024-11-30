@@ -1,0 +1,43 @@
+<div class="register-container">
+    <h2>Crear cuenta</h2>
+    <form>
+      <label for="name">Nombre</label>
+      <input id="name" type="text" placeholder="Nombre y apellido" required />
+      <span class="error">Ingresa tu nombre</span>
+  
+      <label for="email">Número de celular o correo electrónico</label>
+      <input id="email" type="email" placeholder="Ejemplo@correo.com" required />
+  
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" placeholder="Debe tener al menos 6 caracteres" minlength="6" required />
+  
+      <label for="confirm-password">Vuelve a escribir la contraseña</label>
+      <input id="confirm-password" type="password" required />
+  
+      <!-- Opción para cuenta de empresa -->
+      <div class="company-section">
+        <label>
+          <input type="checkbox" id="company-account"  />
+          Registrarse como empresa
+        </label>
+        <div class="company-info" >
+          <label for="company-name">Nombre de la empresa</label>
+          <input id="company-name" type="text" placeholder="Nombre de la empresa" />
+        </div>
+      </div>
+  
+      <button type="submit">Continuar</button>
+    </form>
+  
+    <p>Al crear una cuenta, aceptas las <a [routerLink]="['/terminos-condiciones']">Condiciones de Uso</a> y el <a [routerLink]="['/aviso-privacidad']">Aviso de Privacidad</a> de MH Solutions.</p>
+  
+    <p class="corporate-link">
+      ¿Estás haciendo compras para el trabajo?
+      <a href="#">Crear una cuenta corporativa gratis</a>
+    </p>
+  
+    <p class="login-link">
+      ¿Ya tienes una cuenta? <a href="/log">Iniciar sesión</a>
+    </p>
+  </div>
+  

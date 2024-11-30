@@ -1,0 +1,289 @@
+<div class="container my-5">
+    <!-- Header Breadcrumb -->
+    <!--<nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/carrito">Carrito</a></li>
+              <li class="breadcrumb-item"><a routerLink="/confirmacion">Procede al pago</a></li>
+              <li class="breadcrumb-item"><a routerLink="/tarjeta-informacion">Pagar</a></li>
+              <li class="breadcrumb-item">Pedido completo</li>
+          </ol>
+      </nav>-->
+  
+    <div class="row">
+      <!-- Dirección de Envío -->
+      <div class="col-md-8">
+        <div class="shipping-address p-4 mb-4">
+          <h4>Dirección de Envío</h4>
+          <p class="text-muted">
+            Como lo requieren las aduanas mexicanas, por favor proporciona tu
+            nombre completo y tu CURP o RFC para garantizar que tu pedido se
+            entregue sin problemas.
+          </p>
+  
+          <form>
+            <!-- Formulario de Dirección -->
+            <div class="mb-3">
+              <label for="ubicacion" class="form-label">Ubicación</label>
+              <select class="form-select" id="ubicacion" required>
+                <option>Mexico</option>
+              </select>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" required />
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Número de Teléfono</label>
+              <div class="input-group">
+                <span class="input-group-text">+52</span>
+                <input type="tel" class="form-control" id="telefono" required />
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Dirección</label>
+              <input
+                type="text"
+                class="form-control"
+                id="direccion"
+                placeholder="Calle y Número (ejm: Jose Vasconcelos 105)"
+                required
+              />
+            </div>
+  
+            <div class="mb-3">
+              <label for="referencias" class="form-label">Referencias</label>
+              <input
+                type="text"
+                class="form-control"
+                id="referencias"
+                placeholder="Apartamento, suite, residencia, bélmont, étage, etc. (opcional)"
+              />
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="codigoPostal" class="form-label">Código postal</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigoPostal"
+                  placeholder="12345"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="estado" class="form-label">Estado/Provincia</label>
+                <select class="form-select" id="estado" required>
+                  <option selected disabled>Selecciona Estado/Provincia</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="ciudad" class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="ciudad" required />
+            </div>
+  
+            <div class="form-check mb-3">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="hacerPredeterminado"
+              />
+              <label class="form-check-label" for="hacerPredeterminado"
+                >Hacer predeterminado</label
+              >
+            </div>
+  
+            <button type="submit" class="btn btn-danger w-100">GUARDAR</button>
+          </form>
+        </div>
+      </div>
+      <!-- RESUMEN DE PEDIDO-->
+  
+      <!-- Resumen del Pedido y Forma de Pago -->
+      <div class="col-md-4">
+        <!-- Resumen del Pedido -->
+        <div class="card p-3 mb-4 shadow-sm">
+          <h5 class="mb-3">Resumen del pedido</h5>
+          <div class="d-flex justify-content-between">
+            <p>Subtotal</p>
+            <p>${{ getTotal() | number : "1.2-2" }}</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>Envío</p>
+            <p>Gratis</p>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between">
+            <strong>Total del pedido (Incluye IVA)</strong>
+            <strong>${{ getTotal() | number : "1.2-2" }}</strong>
+          </div>
+        </div>
+  
+        <!-- Forma de Pago -->
+        <div class="card p-4">
+          <h5 class="mb-4">Forma de Pago</h5>
+          <form>
+            <!-- Opción: Pago en Efectivo -->
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paymentMethod"
+                id="cashPayment"
+                [value]="'cash'"
+                (change)="onPaymentMethodChange('cash', false)"
+              />
+              <label class="form-check-label d-block" for="cashPayment">
+                <strong>Pago en Efectivo</strong>
+              </label>
+            </div>
+  
+            <!-- Opción: Tarjeta de Crédito -->
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paymentMethod"
+                id="creditCard"
+                [value]="'creditCard'"
+                (change)="onPaymentMethodChange('creditCard', true)"
+              />
+              <label class="form-check-label d-block" for="creditCard">
+                <strong>Tarjeta de Crédito</strong>
+                <div class="text-center mt-3">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                    alt="Visa"
+                    width="45px"
+                    class="me-2"
+                  />
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                    alt="American Express"
+                    width="45px"
+                    class="me-2"
+                  />
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                    alt="Mastercard"
+                    width="45px"
+                    class="me-2"
+                  />
+                </div>
+              </label>
+            </div>
+  
+            <!-- Opción: Tarjeta de Débito -->
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="paymentMethod"
+                id="creditCard"
+                [value]="'creditCard'"
+                (change)="onPaymentMethodChange('creditCard', true)"
+              />
+              <label class="form-check-label d-block" for="creditCard">
+                <strong>Tarjeta de Débito</strong>
+                <div class="text-center mt-3">
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                    alt="Visa"
+                    width="45px"
+                    class="me-2"
+                  />
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                    alt="American Express"
+                    width="45px"
+                    class="me-2"
+                  />
+                  <img
+                    src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                    alt="Mastercard"
+                    width="45px"
+                    class="me-2"
+                  />
+                </div>
+              </label>
+            </div>
+  
+            <!-- Formulario dinámico -->
+            <div id="cardInfo" class="mt-4" *ngIf="showCardInfo">
+              <div class="mb-3">
+                <label for="cardNumber" class="form-label"
+                  >Número de la tarjeta *</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cardNumber"
+                  [(ngModel)]="cardNumber"
+                  placeholder="1234 5678 9101 1121"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="expiryDate" class="form-label"
+                  >Fecha de caducidad *</label
+                >
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2"
+                    [(ngModel)]="expiryMonth"
+                    required
+                  >
+                    <option>Mes</option>
+                    <option *ngFor="let month of months" [value]="month">
+                      {{ month }}
+                    </option>
+                  </select>
+                  <select class="form-select" [(ngModel)]="expiryYear" required>
+                    <option>Año</option>
+                    <option *ngFor="let year of years" [value]="year">
+                      {{ year }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="cvv" class="form-label">Código de seguridad *</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="cvv"
+                  [(ngModel)]="cvv"
+                  placeholder="CVV/CVC"
+                  required
+                />
+              </div>
+            </div>
+            <p class="mt-4 text-muted">
+              Seguridad y privacidad: SENN almacena de forma segura la información
+              de la tarjeta de crédito y la maneja en cumplimiento con los
+              estándares de la industria.
+            </p>
+  
+            <a
+              class="btn btn-danger w-100"
+              [class.disabled]="!condicionCumplida"
+              (click)="irAConfirmacion()"
+            >
+              PROCEDE AL PAGO
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

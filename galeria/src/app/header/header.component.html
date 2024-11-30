@@ -1,0 +1,110 @@
+<header class="p-3 mb-3" style="background-color: #000; color: #fff;">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      
+      <!-- Logo -->
+      <a [routerLink]="['/']" class="d-flex align-items-center text-decoration-none">
+        <img src="mhsolution.png" alt="MH Solution Logo" width="50" height="50" class="me-2">
+        <span style="color: #fff; font-weight: bold;">MH SOLUTIONS</span>
+      </a>
+      
+      <!-- ======================== -->
+      <!-- Navegación -->
+       <!-- ======================== -->
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <a 
+            [routerLink]="['/']" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{ exact: true }" 
+            class="nav-link px-2">
+            Principal
+          </a>
+        </li>
+        <li>
+          <a 
+            [routerLink]="['/galeria']" 
+            routerLinkActive="active" 
+            class="nav-link px-2">
+            Productos
+          </a>
+        </li>
+        <li>
+          <a 
+            [routerLink]="['/contacto']" 
+            routerLinkActive="active" 
+            class="nav-link px-2">
+            Contáctanos
+          </a>
+        </li>
+      </ul>
+
+      <!-- ======================== -->      
+      <!-- Búsqueda -->
+      <!-- ======================== -->
+
+      <form class="col-12 col-lg-4 mb-3 mb-lg-0 me-lg-3" role="search">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+          <span class="input-group-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+          </span>
+        </div>
+      </form>
+
+      <div class="me-3">
+        <a href="#" class="icon-link icon-link-hover" title="Cambiar idioma" style="color: gray; font-size: 20px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16" style="transition: color 0.3s;">
+            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+            <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+          </svg>
+        </a>
+      </div>
+
+
+      <!-- ======================== -->
+      <!-- Carrito -->
+      <!-- ======================== -->
+      <div class="me-3">
+        <a class="icon-link icon-link-hover cart-icon" [routerLink]="['/carrito']">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Si no está logueado, mostrar el botón de "Iniciar sesión" -->
+      <div *ngIf="!isLoggedIn">
+        <a [routerLink]="['/log']" class="btn btn-light">Iniciar sesión</a>
+      </div>
+
+      
+
+      <!-- Perfil de usuario -->
+      <div *ngIf="isLoggedIn" class="dropdown text-end">
+        <a href="#" class="d-block text-decoration-none dropdown-toggle" style="color: gray;" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu text-small">
+          <li *ngIf="user?.email === 'orlando@gmail.com'">
+            <a [routerLink]="['/perfil']" class="dropdown-item">Perfil</a>
+          </li>
+          <li *ngIf="user?.email === 'orlandoAdmin@gmail.com'">
+            <a [routerLink]="['/dashboard']" class="dropdown-item">Admin Usuarios</a>
+            <a [routerLink]="['/dashboard-productos']" class="dropdown-item">Admin Productos</a>
+            <a [routerLink]="['/mensajes']" class="dropdown-item">Admin Mensajes</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a (click)="logout()" class="dropdown-item">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,49 @@
+
+<main class="form-signin w-100 m-auto" id="login-form">
+  <form>
+    <h1 class="h3 mb-3 fw-normal text-center">Iniciar sesión</h1>
+
+
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control" required>
+      </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+    </div>
+
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{ errorMessage }}</div>
+    <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
+  </form>
+    <p class="small-text mt-2">Al continuar, aceptas las <a [routerLink]="['/terminos-condiciones']">Condiciones de uso</a> y el <a [routerLink]="['/aviso-privacidad']">Aviso de privacidad</a> de MH Solutions.</p>
+    <!--##########################################
+      ## Sección de ayuda con flecha desplegable 
+      ############################################
+    -->
+    <div class="text-start mt-3">
+      <a class="d-flex align-items-center collapsed" data-bs-toggle="collapse" href="#helpCollapse" role="button" aria-expanded="false" aria-controls="helpCollapse">
+        ¿Necesitas ayuda?
+        <span class="toggle-arrow">▼</span>
+    </a>
+      <div class="collapse" id="helpCollapse">
+        <a href="#">¿Olvidaste tu contraseña?</a><br>
+        <a href="#">Otros problemas con el inicio de sesión</a>
+      </div>
+    </div>
+
+      <hr class="my-4">
+      <p class="small-text"><strong>¿Compras para el trabajo?</strong> <br><a href="#">Compra en MH Business</a></p>
+      <p class="new-to-mh">¿Eres nuevo en MH Solution?</p>
+      <a class="btn register-button" type="button" href="/registro">Crea tu cuenta de MH Solutions</a>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+  </form>
+</main>

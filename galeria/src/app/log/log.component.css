@@ -1,0 +1,103 @@
+/* Estilos para el contenedor principal */
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los campos de entrada */
+.form-signin .form-control {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+  border-radius: 4px;
+}
+
+/* Estilo de texto para los textos pequeños */
+.small-text,
+.new-to-mh,
+.text-start {
+  font-size: 12px;
+  color: #767676;
+}
+
+/* Títulos y enlaces */
+.h3 {
+  color: #333;
+}
+
+/* Botones principales en rojo */
+.btn-primary,
+.register-button {
+  background-color: red;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover,
+.register-button:hover {
+  background-color: #c9302c;
+}
+
+/* Botón "Crea tu cuenta" para registro */
+.register-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  background-color:red;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+}
+
+/* Estilos de secciones de ayuda */
+.text-start {
+  font-size: 12px;
+  color: #767676;
+}
+
+.new-to-mh {
+  font-size: 12px;
+  color: #767676;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+/* Líneas decorativas alrededor del texto "¿Eres nuevo en MH Solution?" */
+.new-to-mh::before,
+.new-to-mh::after {
+  content: "";
+  display: inline-block;
+  width: 20%;
+  height: 1px;
+  background-color: #ddd;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+
+/* Flecha en la sección de ayuda */
+.toggle-arrow {
+  font-size: 12px;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.collapsed .toggle-arrow {
+  transform: rotate(0deg);
+}
+
+.expanded .toggle-arrow {
+  transform: rotate(180deg);
+}

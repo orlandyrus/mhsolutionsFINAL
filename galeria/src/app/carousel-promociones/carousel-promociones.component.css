@@ -1,0 +1,130 @@
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #000; /* Fondo negro */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h2 {
+  color: #e60e0e;
+  font-family: Jost, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicators button.active {
+  background: #da0707;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+/* Media queries para diseño responsivo */
+@media (max-width: 768px) {
+  .carousel-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .carousel-content p {
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-content {
+    padding: 10px;
+  }
+
+  .carousel-control {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+}
